@@ -20,6 +20,8 @@ jobs:
         uses: actions/setup-python@v3
         with:
           python-version: '3.x'
+      - name: Install python dependencies
+        run: pip3 install -r requirements.txt
       - name: Update README
         run: scripts/update-contributors.sh
         env:
