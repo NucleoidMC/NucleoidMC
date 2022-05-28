@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "contributors"
+version = "0.1.0"
+description = ""
+authors = ["Ashhhleyyy <ash@ashhhleyyy.dev>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+requests = "^2.27.1"
+dataclasses-json = "^0.5.7"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
