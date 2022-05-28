@@ -5,7 +5,7 @@ from typing import List
 from html import escape
 
 def format_contributor(contributor: Contributor) -> str:
-    return f'<td align="center"><sub><img src="{contributor.avatar_url}" width="100" height="100"><br><b>{escape(contributor.name)}</b><br>{", ".join(contributor.contributions)}</sub></td>'
+    return f'<td align="center"><sub><img src="{contributor.avatar_url}?size=100" width="100" height="100"><br><b>{escape(contributor.name)}</b><br>{", ".join(contributor.contributions)}</sub></td>'
 
 def main():
     if len(sys.argv) < 3:
