@@ -1,0 +1,34 @@
+name: Update contributors list
+
+on:
+  # Allow manual trigger from the Actions tab
+  workflow_dispatch:
+  schedule:
+    # Run at 00:23 (to avoid peak times on the hour), every day
+    - cron: '0 23 * * *'
+
+jobs:
+  build:
+    name: Update list
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Setup python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.x'
+      - name: Update README
+        run: scripts/update-contributors.sh
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+      - name: Commit changes
+        uses: test-room-7/action-update-file@v1
+        with:
+          file-path: |
+            contributors/contributors.discord.json
+            README.md
+          commit-msg: 'docs: Update contributors list'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
